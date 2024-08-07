@@ -15,6 +15,7 @@
 		2933B5E92C62036A004B547C /* apiMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5E82C62036A004B547C /* apiMacUITests.swift */; };
 		2933B5EB2C62036A004B547C /* apiMacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */; };
 		2933B5FC2C620D31004B547C /* detailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5FB2C620D31004B547C /* detailView.swift */; };
+		2933B6002C62140B004B547C /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5FF2C62140B004B547C /* PageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2933B5E82C62036A004B547C /* apiMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiMacUITests.swift; sourceTree = "<group>"; };
 		2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiMacUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2933B5FB2C620D31004B547C /* detailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailView.swift; sourceTree = "<group>"; };
+		2933B5FF2C62140B004B547C /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,11 @@
 			children = (
 				2933B5CC2C620367004B547C /* apiMacApp.swift */,
 				2933B5CE2C620367004B547C /* ContentView.swift */,
+				2933B5FF2C62140B004B547C /* PageView.swift */,
+				2933B5FB2C620D31004B547C /* detailView.swift */,
 				2933B5D02C62036A004B547C /* Assets.xcassets */,
 				2933B5D52C62036A004B547C /* apiMac.entitlements */,
 				2933B5D22C62036A004B547C /* Preview Content */,
-				2933B5FB2C620D31004B547C /* detailView.swift */,
 			);
 			path = apiMac;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2933B5FC2C620D31004B547C /* detailView.swift in Sources */,
+				2933B6002C62140B004B547C /* PageView.swift in Sources */,
 				2933B5CF2C620367004B547C /* ContentView.swift in Sources */,
 				2933B5CD2C620367004B547C /* apiMacApp.swift in Sources */,
 			);

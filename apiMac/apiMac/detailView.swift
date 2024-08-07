@@ -6,14 +6,14 @@ struct DetailView: View {
             Text("Detail View")
                 .font(.largeTitle)
                 .padding()
-            
-            Text("This is the detail view content.")
+
+            Text("More details about the API Store...")
+                .font(.body)
                 .padding()
-            
+
             Spacer()
         }
-        .frame(width: 400, height: 300)
-        .background(Color(NSColor.windowBackgroundColor).edgesIgnoringSafeArea(.all))
+        .frame(minWidth: 600, minHeight: 400)
     }
 }
 
