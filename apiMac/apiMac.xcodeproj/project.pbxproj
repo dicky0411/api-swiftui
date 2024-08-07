@@ -16,6 +16,8 @@
 		2933B5EB2C62036A004B547C /* apiMacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */; };
 		2933B5FC2C620D31004B547C /* detailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5FB2C620D31004B547C /* detailView.swift */; };
 		2933B6002C62140B004B547C /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5FF2C62140B004B547C /* PageView.swift */; };
+		F5BFEB882C6306A3007A412B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFEB872C6306A3007A412B /* SidebarView.swift */; };
+		F5BFEB8A2C6306AC007A412B /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFEB892C6306AC007A412B /* LayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiMacUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2933B5FB2C620D31004B547C /* detailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailView.swift; sourceTree = "<group>"; };
 		2933B5FF2C62140B004B547C /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		F5BFEB872C6306A3007A412B /* SidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		F5BFEB892C6306AC007A412B /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		2933B5CB2C620367004B547C /* apiMac */ = {
 			isa = PBXGroup;
 			children = (
+				F5BFEB892C6306AC007A412B /* LayoutView.swift */,
+				F5BFEB872C6306A3007A412B /* SidebarView.swift */,
 				2933B5CC2C620367004B547C /* apiMacApp.swift */,
 				2933B5CE2C620367004B547C /* ContentView.swift */,
 				2933B5FF2C62140B004B547C /* PageView.swift */,
@@ -267,6 +273,8 @@
 			files = (
 				2933B5FC2C620D31004B547C /* detailView.swift in Sources */,
 				2933B6002C62140B004B547C /* PageView.swift in Sources */,
+				F5BFEB8A2C6306AC007A412B /* LayoutView.swift in Sources */,
+				F5BFEB882C6306A3007A412B /* SidebarView.swift in Sources */,
 				2933B5CF2C620367004B547C /* ContentView.swift in Sources */,
 				2933B5CD2C620367004B547C /* apiMacApp.swift in Sources */,
 			);

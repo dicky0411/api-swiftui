@@ -11,9 +11,14 @@ import SwiftUI
 struct apiMacApp: App {
     var body: some Scene {
         WindowGroup {
-                    ContentView()
-                        .frame(width: 800, height: 600) // Set desired width and height
-                }
-                .windowStyle(DefaultWindowStyle())
+            LayoutView()
+        }
+        .windowStyle(DefaultWindowStyle())
     }
+}
+
+#Preview {
+    LayoutView()
+        .frame(width: 100)
+        .frame(height: 100)
 }

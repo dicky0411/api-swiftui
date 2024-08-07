@@ -1,8 +1,12 @@
 import SwiftUI
 
 struct DetailView: View {
+    var product: String
+    
     var body: some View {
         VStack {
+            Text(product)
+            
             Text("Detail View")
                 .font(.largeTitle)
                 .padding()
@@ -19,6 +23,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(product: "IP2Region")
     }
 }

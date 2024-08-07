@@ -52,7 +52,7 @@ struct PageView: View {
             backing: .buffered, defer: false)
         detailWindow.center()
         detailWindow.setFrameAutosaveName("Detail Window")
-        detailWindow.contentView = NSHostingView(rootView: DetailView())
+        detailWindow.contentView = NSHostingView(rootView: DetailView(product: "IPAddress"))
         detailWindow.makeKeyAndOrderFront(nil)
     }
 }
