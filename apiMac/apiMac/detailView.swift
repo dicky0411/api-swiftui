@@ -1,28 +1,23 @@
 import SwiftUI
 
 struct DetailView: View {
-    var product: String
+    let product: Product
     
     var body: some View {
         VStack {
-            Text(product)
-            
-            Text("Detail View")
+            Text("Detail view for \(product.name)")
                 .font(.largeTitle)
-                .padding()
-
-            Text("More details about the API Store...")
+            Text(product.description)
                 .font(.body)
-                .padding()
-
-            Spacer()
+            Image(systemName: product.icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 100)
         }
-        .frame(minWidth: 600, minHeight: 400)
+        .padding()
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(product: "IP2Region")
-    }
+#Preview {
+    DetailView(product: Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location"))
 }

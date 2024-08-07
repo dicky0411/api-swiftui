@@ -46,13 +46,16 @@ struct PageView: View {
     }
 
     private func openDetailWindow() {
+        // Create a sample Product to pass to DetailView
+        let product = Product(name: "IPAddress", description: "Details about IP Address", icon: "network")
+
         let detailWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 600, height: 400),
             styleMask: [.titled, .closable, .resizable, .miniaturizable],
             backing: .buffered, defer: false)
         detailWindow.center()
         detailWindow.setFrameAutosaveName("Detail Window")
-        detailWindow.contentView = NSHostingView(rootView: DetailView(product: "IPAddress"))
+        detailWindow.contentView = NSHostingView(rootView: DetailView(product: product))
         detailWindow.makeKeyAndOrderFront(nil)
     }
 }
