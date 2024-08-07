@@ -2,16 +2,18 @@ import SwiftUI
 
 struct LayoutView: View {
     @State private var selectedProduct = Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location")
-    
+
     var body: some View {
-        NavigationSplitView(sidebar: {
+        NavigationSplitView {
             SidebarView(selection: $selectedProduct)
-        }, detail: {
+        } detail: {
             DetailView(product: selectedProduct)
-        })
+        }
     }
 }
 
-#Preview {
-    LayoutView()
+struct LayoutView_Previews: PreviewProvider {
+    static var previews: some View {
+        LayoutView()
+    }
 }

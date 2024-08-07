@@ -21,9 +21,6 @@ struct SidebarView: View {
                     Text(product.name)
                         .font(.headline)
                         .foregroundColor(selection == product ? .accentColor : .primary)
-                    Text(product.description)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
                 }
                 .padding(.vertical, 8)
                 .background(selection == product ? Color.accentColor.opacity(0.2) : Color.clear)

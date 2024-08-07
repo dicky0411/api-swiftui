@@ -1,47 +1,57 @@
 import SwiftUI
 
 struct PageView: View {
+    
+    @State private var isShowingDetailWindow: Bool = false
+
     var body: some View {
         NavigationView {
-            HStack {
-                // Icon
-                Image(systemName: "globe")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 150, height: 150)
-                    .foregroundColor(.accentColor)
+            VStack {
+                // Search Bar with Visible Background
+                
+
+                // Content
+                HStack {
+                    // Icon
+                    Image(systemName: "globe")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                        .foregroundColor(.accentColor)
+                        .padding()
+
+                    VStack(alignment: .leading, spacing: 20) {
+                        // App Title
+                        Text("API Store")
+                            .font(.system(size: 34, weight: .bold))
+                            .foregroundColor(.primary)
+
+                        // Welcome Message
+                        Text("Welcome to the API Store")
+                            .font(.system(size: 22, weight: .regular))
+                            .foregroundColor(.secondary)
+
+                        // Navigation Link to DetailView
+                        Button(action: {
+                            openDetailWindow()
+                        }) {
+                            Text("Explore Details")
+                                .font(.system(size: 18, weight: .semibold))
+                                .padding()
+                                .background(Color.accentColor)
+                                .foregroundColor(.white)
+                                .cornerRadius(12)
+                                .shadow(radius: 5)
+                        }
+                    }
                     .padding()
 
-                VStack(alignment: .leading, spacing: 20) {
-                    // App Title
-                    Text("API Store")
-                        .font(.system(size: 34, weight: .bold))
-                        .foregroundColor(.primary)
-
-                    // Welcome Message
-                    Text("Welcome to the API Store")
-                        .font(.system(size: 22, weight: .regular))
-                        .foregroundColor(.secondary)
-
-                    // Navigation Link to DetailView
-                    Button(action: {
-                        openDetailWindow()
-                    }) {
-                        Text("Explore Details")
-                            .font(.system(size: 18, weight: .semibold))
-                            .padding()
-                            .background(Color.accentColor)
-                            .foregroundColor(.white)
-                            .cornerRadius(12)
-                            .shadow(radius: 5)
-                    }
+                    Spacer()
                 }
                 .padding()
-
-                Spacer()
+                .background(Color(NSColor.windowBackgroundColor).edgesIgnoringSafeArea(.all))
             }
-            .padding()
-            .background(Color(NSColor.windowBackgroundColor).edgesIgnoringSafeArea(.all))
+            .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensure the VStack takes available space
         }
     }
 
