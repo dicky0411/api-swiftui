@@ -1,55 +1,59 @@
 import SwiftUI
 
 struct DetailView: View {
-    @State private var urlText: String = ""
+    @State private var ipAddress: String = ""
     @State private var jsonResponse: String = ""
     let product: Product
+    let baseURL = "https://ipwho.is/"
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Detail view for \(product.name)")
+            Text("UI Screen: \(product.name)")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.primary)
+                .padding(.top, 20)
             
             Text(product.description)
-                .font(.body)
+                .font(.title2)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal)
+                .padding(.horizontal, 20)
             
             Image(systemName: product.icon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
+                .frame(width: 120, height: 120)
                 .foregroundColor(.accentColor)
             
-            TextField("Enter URL...", text: $urlText, onCommit: {
-                fetchData(from: urlText)
-            })
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-            .background(Color(.windowBackgroundColor))
-            .cornerRadius(10)
-            .padding(.horizontal)
+            TextField("Enter IP address...", text: $ipAddress, onCommit: { fetchData(for: ipAddress)})
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .background(Color(nsColor: .windowBackgroundColor))
+                .cornerRadius(10)
+                .frame(width: 300, height: 50) // Adjusted width and height
+                .padding(.horizontal, 20)
             
             ScrollView {
                 Text(jsonResponse)
+                    .font(.largeTitle)
+                    .foregroundColor(.primary)
                     .padding()
-                    .background(Color(.windowBackgroundColor))
+                    .background(Color(nsColor: .windowBackgroundColor))
                     .cornerRadius(10)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 20)
+                    .frame(maxWidth: .infinity)
             }
             
             Spacer()
         }
         .padding()
         .frame(minWidth: 400, minHeight: 600)
-        .background(Color(.windowBackgroundColor))
+        .background(Color(nsColor: .windowBackgroundColor))
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(action: {
-                    fetchData(from: urlText)
+                    fetchData(for: ipAddress)
                 }) {
                     Text("Fetch Data")
                 }
@@ -57,7 +61,8 @@ struct DetailView: View {
         }
     }
 
-    private func fetchData(from urlString: String) {
+    private func fetchData(for ipAddress: String) {
+        let urlString = "\(baseURL)\(ipAddress)"
         guard let url = URL(string: urlString) else {
             DispatchQueue.main.async {
                 jsonResponse = "Invalid URL: \(urlString)"
@@ -89,11 +94,26 @@ struct DetailView: View {
             }
 
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-                let jsonString = String(data: jsonData, encoding: .utf8) ?? "Unable to convert JSON to string"
-                DispatchQueue.main.async {
-                    jsonResponse = jsonString
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                   let country = json["country"] as? String,
+                   let city = json["city"] as? String,
+                   let continent = json["continent"] as? String,
+                   let latitude = json["latitude"] as? Double,
+                   let longitude = json["longitude"] as? Double {
+                    let result = """
+                    Country: \(country)
+                    City: \(city)
+                    Continent: \(continent)
+                    Latitude: \(latitude)
+                    Longitude: \(longitude)
+                    """
+                    DispatchQueue.main.async {
+                        jsonResponse = result
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        jsonResponse = "Invalid JSON data"
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
