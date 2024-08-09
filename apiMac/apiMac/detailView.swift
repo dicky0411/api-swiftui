@@ -1,4 +1,5 @@
 import SwiftUI
+import OSLog
 
 struct DetailView: View {
     @State private var ipAddress: String = ""
@@ -61,7 +62,9 @@ struct DetailView: View {
     }
 
     private func fetchData(for ipAddress: String) {
+        os_log("fetchData for \(ipAddress)")
         let urlString = "\(product.baseurl)\(ipAddress)"
+        os_log("\(urlString)")
         guard let url = URL(string: urlString) else {
             DispatchQueue.main.async {
                 jsonResponse = "Invalid URL: \(urlString)"
@@ -138,20 +141,26 @@ func parseIP(_ data: Data) -> String {
     }
 }
 func parseFruits(_ data: Data) -> String {
+    if let string = String(data: data, encoding: .utf8) {
+        os_log("\(string)")
+    }
+
     do {
         if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-           let nutritions = json["nutritions"] as? [String: Any],
-           let calories = nutritions["calories"] as? Int,
-           let fat = nutritions["fat"] as? Double,
-           let sugar = nutritions["sugar"] as? Double,
-           let carbs = nutritions["carbohydrates"] as? Double,
-           let proteins = nutritions["proteins"] as? Double {
+           let nutritions = json["nutritions"] as? [String: Any]
+        {
+            let calories = nutritions["calories"] as? Int
+            let fat = nutritions["fat"] as? Double
+            let sugar = nutritions["sugar"] as? Double
+            let carbs = nutritions["carbohydrates"] as? Double
+            let proteins = nutritions["proteins"] as? Double
+            
             let result = """
-            Calories: \(calories)
-            Fat: \(fat)
-            Sugar: \(sugar)
-            Carbs: \(carbs)
-            Proteins: \(proteins)
+            Calories: \(calories == nil ? "nil" : "\(calories!)")
+            Fat: \(fat == nil ? "nil" : "\(fat!)")
+            Sugar: \(sugar == nil ? "nil" : "\(sugar!)")
+            Carbs: \(carbs == nil ? "nil" : "\(carbs!)")
+            Proteins: \(proteins == nil ? "nil" : "\(proteins!)")
             """
             return result
         } else {
