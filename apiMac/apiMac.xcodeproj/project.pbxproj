@@ -14,6 +14,9 @@
 		2933B5E92C62036A004B547C /* apiMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5E82C62036A004B547C /* apiMacUITests.swift */; };
 		2933B5EB2C62036A004B547C /* apiMacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */; };
 		2933B5FC2C620D31004B547C /* detailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933B5FB2C620D31004B547C /* detailView.swift */; };
+		298C7FCF2C65F454003500B6 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FCE2C65F454003500B6 /* IPAddress.swift */; };
+		298C7FD12C65F480003500B6 /* AirPollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FD02C65F480003500B6 /* AirPollution.swift */; };
+		298C7FD32C65F486003500B6 /* FruitNutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FD22C65F486003500B6 /* FruitNutrition.swift */; };
 		299BB88B2C630C6E00F37732 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299BB88A2C630C6E00F37732 /* Product.swift */; };
 		F5BFEB882C6306A3007A412B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFEB872C6306A3007A412B /* SidebarView.swift */; };
 		F5BFEB8A2C6306AC007A412B /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFEB892C6306AC007A412B /* LayoutView.swift */; };
@@ -48,6 +51,9 @@
 		2933B5E82C62036A004B547C /* apiMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiMacUITests.swift; sourceTree = "<group>"; };
 		2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiMacUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2933B5FB2C620D31004B547C /* detailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailView.swift; sourceTree = "<group>"; };
+		298C7FCE2C65F454003500B6 /* IPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		298C7FD02C65F480003500B6 /* AirPollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollution.swift; sourceTree = "<group>"; };
+		298C7FD22C65F486003500B6 /* FruitNutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitNutrition.swift; sourceTree = "<group>"; };
 		299BB88A2C630C6E00F37732 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F5BFEB872C6306A3007A412B /* SidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		F5BFEB892C6306AC007A412B /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -101,14 +107,13 @@
 		2933B5CB2C620367004B547C /* apiMac */ = {
 			isa = PBXGroup;
 			children = (
-				F5BFEB892C6306AC007A412B /* LayoutView.swift */,
-				F5BFEB872C6306A3007A412B /* SidebarView.swift */,
-				2933B5CC2C620367004B547C /* apiMacApp.swift */,
-				2933B5FB2C620D31004B547C /* detailView.swift */,
-				299BB88A2C630C6E00F37732 /* Product.swift */,
-				2933B5D02C62036A004B547C /* Assets.xcassets */,
 				2933B5D52C62036A004B547C /* apiMac.entitlements */,
+				2933B5D02C62036A004B547C /* Assets.xcassets */,
 				2933B5D22C62036A004B547C /* Preview Content */,
+				298C7FCC2C65F41C003500B6 /* API */,
+				298C7FCA2C65F407003500B6 /* Models */,
+				298C7FC92C65F3FB003500B6 /* Views */,
+				2933B5CC2C620367004B547C /* apiMacApp.swift */,
 			);
 			path = apiMac;
 			sourceTree = "<group>";
@@ -136,6 +141,34 @@
 				2933B5EA2C62036A004B547C /* apiMacUITestsLaunchTests.swift */,
 			);
 			path = apiMacUITests;
+			sourceTree = "<group>";
+		};
+		298C7FC92C65F3FB003500B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5BFEB892C6306AC007A412B /* LayoutView.swift */,
+				F5BFEB872C6306A3007A412B /* SidebarView.swift */,
+				2933B5FB2C620D31004B547C /* detailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		298C7FCA2C65F407003500B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				299BB88A2C630C6E00F37732 /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		298C7FCC2C65F41C003500B6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				298C7FCE2C65F454003500B6 /* IPAddress.swift */,
+				298C7FD02C65F480003500B6 /* AirPollution.swift */,
+				298C7FD22C65F486003500B6 /* FruitNutrition.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +304,11 @@
 				2933B5FC2C620D31004B547C /* detailView.swift in Sources */,
 				F5BFEB8A2C6306AC007A412B /* LayoutView.swift in Sources */,
 				F5BFEB882C6306A3007A412B /* SidebarView.swift in Sources */,
+				298C7FD12C65F480003500B6 /* AirPollution.swift in Sources */,
 				2933B5CD2C620367004B547C /* apiMacApp.swift in Sources */,
+				298C7FD32C65F486003500B6 /* FruitNutrition.swift in Sources */,
 				299BB88B2C630C6E00F37732 /* Product.swift in Sources */,
+				298C7FCF2C65F454003500B6 /* IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = apiMac/apiMac.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -460,6 +497,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = apiMac/apiMac.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
