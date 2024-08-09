@@ -1,68 +1,75 @@
 import SwiftUI
 import OSLog
 struct DetailView: View {
-    @State private var ipAddress: String = ""
+    @State private var userInput: String = ""
     @State private var jsonResponse: String = ""
     let product: Product
 
     var body: some View {
         VStack(spacing: 20) {
-                    Text("UI Screen: \(product.name)")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.top, 20)
-                    
-                    Text(product.description)
-                        .font(.body)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 20)
-                    
-                    Image(systemName: product.icon)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                        .foregroundColor(.cyan)
-                    
-                    TextField(product.textbox, text: $ipAddress)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .background(Color(nsColor: .darkGray))
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .frame(width: 300, height: 50)
-                        .padding(.horizontal, 20)
-
-                    Button(action: {
-                        fetchData(for: ipAddress)
+            Text("UI Screen: \(product.name)")
+                .font(.system(size: 36, weight: .bold, design: .rounded))
+                .foregroundColor(.white)
+                .padding(.top, 20)
+                .shadow(color: Color.white.opacity(0.6), radius: 10, x: 0, y: 0)
+             
+            Text(product.description)
+                .font(.system(size: 18, weight: .medium, design: .rounded))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 20)
+                .background(Color(nsColor: .controlBackgroundColor).opacity(0.7))
+                .cornerRadius(15)
+                .shadow(color: Color.white.opacity(0.3), radius: 10, x: 0, y: 0)
+            Image(systemName: product.icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 120, height: 120)
+                .foregroundColor(.cyan)
+                .shadow(color: Color.white.opacity(0.6), radius: 15, x: 0, y: 0)
+   // TextField
+            TextField(product.textbox, text: $userInput)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                .background(Color(nsColor: .controlBackgroundColor).opacity(0.8))
+                .cornerRadius(12)
+               .foregroundColor(.white)
+               .frame(width: 300, height: 50)
+                .padding(.horizontal, 20)
+                .shadow(color: Color.white.opacity(0.3), radius: 10, x: 0, y: 0)
+            Button(action: {
+                    fetchData(for: userInput)
                     }) {
-                        Text("Fetch Data")
-                            .font(.body)
-                            .padding()
-                            .frame(width: 300)
-                            .background(Color.cyan)
-                            .foregroundColor(.black)
-                            .cornerRadius(10)
-                            .padding(.top, 10)
-                    }
+                Text("Fetch Data")
+                    .font(.system(size: 20, weight: .semibold, design: .rounded))
+                    .padding()
+                    .frame(width: 300)
+                    .background(Color.cyan)
+                    .foregroundColor(.black)
+                    .cornerRadius(12)
+                    .shadow(color: Color.white.opacity(0.5), radius: 10, x: 0, y: 0)
+                    .scaleEffect(1.05)
+                            }
                     .buttonStyle(BorderlessButtonStyle())
-                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
 
-                    ScrollView {
-                        Text(jsonResponse)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color(nsColor: .darkGray))
-                            .cornerRadius(10)
-                            .padding(.horizontal, 20)
-                            .frame(maxWidth: .infinity)
-                    }
+            ScrollView {
+                Text(jsonResponse)
+                .font(.system(size: 16, weight: .regular, design: .rounded))
+                .foregroundColor(.white)
+                .padding()
+                .background(Color(nsColor:
+                        .controlBackgroundColor).opacity(0.8))
+                .cornerRadius(12)
+                .shadow(color: Color.white.opacity(0.3), radius: 10, x: 0, y: 0)
+                .padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
+                            }
+            Spacer()
             .onChange(of: product, {
                             os_log("product changed to \(product.name)")
                             self.jsonResponse = ""
-                            self.ipAddress = ""
+                            self.userInput = ""
                         })
             
             Spacer()
