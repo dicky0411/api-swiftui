@@ -4,7 +4,6 @@ struct DetailView: View {
     @State private var ipAddress: String = ""
     @State private var jsonResponse: String = ""
     let product: Product
-    let baseURL = "https://ipwho.is/"
 
     var body: some View {
         VStack(spacing: 20) {
@@ -26,7 +25,7 @@ struct DetailView: View {
                 .frame(width: 120, height: 120)
                 .foregroundColor(.accentColor)
             
-            TextField("Enter IP address...", text: $ipAddress, onCommit: { fetchData(for: ipAddress)})
+            TextField(product.textbox, text: $ipAddress, onCommit: { fetchData(for: ipAddress)})
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .background(Color(nsColor: .windowBackgroundColor))
@@ -62,7 +61,7 @@ struct DetailView: View {
     }
 
     private func fetchData(for ipAddress: String) {
-        let urlString = "\(baseURL)\(ipAddress)"
+        let urlString = "\(product.baseurl)\(ipAddress)"
         guard let url = URL(string: urlString) else {
             DispatchQueue.main.async {
                 jsonResponse = "Invalid URL: \(urlString)"
@@ -92,34 +91,17 @@ struct DetailView: View {
                 }
                 return
             }
-
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let country = json["country"] as? String,
-                   let city = json["city"] as? String,
-                   let continent = json["continent"] as? String,
-                   let latitude = json["latitude"] as? Double,
-                   let longitude = json["longitude"] as? Double {
-                    let result = """
-                    Country: \(country)
-                    City: \(city)
-                    Continent: \(continent)
-                    Latitude: \(latitude)
-                    Longitude: \(longitude)
-                    """
-                    DispatchQueue.main.async {
-                        jsonResponse = result
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        jsonResponse = "Invalid JSON data"
-                    }
-                }
-            } catch {
+            if product.name == "MyLocation" {
                 DispatchQueue.main.async {
-                    jsonResponse = "JSON parsing error: \(error.localizedDescription)"
+                    jsonResponse = parseIP(data)
                 }
+            }else if product.name == "FruitNutrition"{
+                DispatchQueue.main.async{
+                    jsonResponse = parseFruits(data)
+                }
+                
             }
+           
         }
 
         task.resume()
@@ -128,6 +110,54 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(product: Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location"))
+        DetailView(product: Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/"))
+    }
+}
+
+func parseIP(_ data: Data) -> String {
+    do {
+        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+           let country = json["country"] as? String,
+           let city = json["city"] as? String,
+           let continent = json["continent"] as? String,
+           let latitude = json["latitude"] as? Double,
+           let longitude = json["longitude"] as? Double {
+            let result = """
+            Country: \(country)
+            City: \(city)
+            Continent: \(continent)
+            Latitude: \(latitude)
+            Longitude: \(longitude)
+            """
+            return result
+        } else {
+            return "Invalid JSON data"
+        }
+    } catch {
+        return "JSON parsing error: \(error.localizedDescription)"
+    }
+}
+func parseFruits(_ data: Data) -> String {
+    do {
+        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+           let nutritions = json["nutritions"] as? [String: Any],
+           let calories = nutritions["calories"] as? Int,
+           let fat = nutritions["fat"] as? Double,
+           let sugar = nutritions["sugar"] as? Double,
+           let carbs = nutritions["carbohydrates"] as? Double,
+           let proteins = nutritions["proteins"] as? Double {
+            let result = """
+            Calories: \(calories)
+            Fat: \(fat)
+            Sugar: \(sugar)
+            Carbs: \(carbs)
+            Proteins: \(proteins)
+            """
+            return result
+        } else {
+            return "Invalid JSON data"
+        }
+    } catch {
+        return "JSON parsing error: \(error.localizedDescription)"
     }
 }

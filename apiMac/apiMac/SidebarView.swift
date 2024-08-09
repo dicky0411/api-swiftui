@@ -4,9 +4,9 @@ struct SidebarView: View {
     @Binding var selection: Product
     
     var products: [Product] = [
-        Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location"),
-        Product(name: "IP2Region", description: "Get region information from IP addresses", icon: "globe"),
-        Product(name: "CountryInfo", description: "Detailed information about countries", icon: "flag")
+        Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/"),
+        Product(name: "FruitNutrition", description: "Get nutirition information from fruits", icon: "globe",textbox: "Enter the Fruit:",baseurl:"https://www.fruityvice.com/api/fruit/"),
+        Product(name: "CountryInfo", description: "Detailed information about countries", icon: "flag",textbox: "Enter the Country:",baseurl:"")
     ]
     
     var body: some View {
@@ -23,7 +23,7 @@ struct SidebarView: View {
                         .foregroundColor(selection == product ? .accentColor : .primary)
                 }
                 .padding(.vertical, 8)
-                .background(selection == product ? Color.accentColor.opacity(0.2) : Color.clear)
+                .background(selection == product ? Color.accentColor.opacity(0.5) : Color.clear)
                 .cornerRadius(8)
             }
             .contentShape(Rectangle())
@@ -36,5 +36,5 @@ struct SidebarView: View {
 }
 
 #Preview {
-    SidebarView(selection: .constant(Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location")))
+    SidebarView(selection: .constant(Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "IP?",baseurl:"https://ipwho.is/")))
 }
