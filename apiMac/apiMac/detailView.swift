@@ -44,6 +44,11 @@ struct DetailView: View {
                     .padding(.horizontal, 20)
                     .frame(maxWidth: .infinity)
             }
+            .onChange(of: product, {
+                os_log("product changed to \(product.name)")
+                self.jsonResponse = ""
+                self.ipAddress = ""
+            })
             
             Spacer()
         }
