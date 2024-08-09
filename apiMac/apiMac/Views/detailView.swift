@@ -7,7 +7,7 @@ struct DetailView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("UI Screen: \(product.name)")
+            Text("\(product.name) API")
                 .font(.system(size: 36, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
                 .padding(.top, 20)
@@ -118,6 +118,8 @@ struct DetailView: View {
                 } else if product.name == "MyLocation" {
                     jsonResponse = parseIP(data)
                 } else if product.name == "AirPollution" {
+                    jsonResponse = parseAir(data)
+                } else if product.name == "CountryInfo" {
                     jsonResponse = parseAir(data)
                 }
             }

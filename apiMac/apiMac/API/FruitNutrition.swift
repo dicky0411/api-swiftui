@@ -18,7 +18,7 @@ func parseFruits(_ data: Data) -> String {
             let fat = nutritions["fat"] as? Double
             let sugar = nutritions["sugar"] as? Double
             let carbs = nutritions["carbohydrates"] as? Double
-            let protein = nutritions["protein"] as? Int
+            let protein = nutritions["protein"] as? Double
             
             let result = """
             Calories: \(calories == nil ? "nil" : "\(calories!)g")

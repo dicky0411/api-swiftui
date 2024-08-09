@@ -17,7 +17,7 @@
 		298C7FCF2C65F454003500B6 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FCE2C65F454003500B6 /* IPAddress.swift */; };
 		298C7FD12C65F480003500B6 /* AirPollution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FD02C65F480003500B6 /* AirPollution.swift */; };
 		298C7FD32C65F486003500B6 /* FruitNutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FD22C65F486003500B6 /* FruitNutrition.swift */; };
-		298C7FD52C65FA57003500B6 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FD42C65FA57003500B6 /* FetchData.swift */; };
+		298C7FD72C6604BC003500B6 /* CountryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C7FD62C6604BC003500B6 /* CountryInfo.swift */; };
 		299BB88B2C630C6E00F37732 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299BB88A2C630C6E00F37732 /* Product.swift */; };
 		F5BFEB882C6306A3007A412B /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFEB872C6306A3007A412B /* SidebarView.swift */; };
 		F5BFEB8A2C6306AC007A412B /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BFEB892C6306AC007A412B /* LayoutView.swift */; };
@@ -55,7 +55,7 @@
 		298C7FCE2C65F454003500B6 /* IPAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		298C7FD02C65F480003500B6 /* AirPollution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirPollution.swift; sourceTree = "<group>"; };
 		298C7FD22C65F486003500B6 /* FruitNutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitNutrition.swift; sourceTree = "<group>"; };
-		298C7FD42C65FA57003500B6 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
+		298C7FD62C6604BC003500B6 /* CountryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryInfo.swift; sourceTree = "<group>"; };
 		299BB88A2C630C6E00F37732 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		F5BFEB872C6306A3007A412B /* SidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		F5BFEB892C6306AC007A412B /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -159,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				299BB88A2C630C6E00F37732 /* Product.swift */,
-				298C7FD42C65FA57003500B6 /* FetchData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +169,7 @@
 				298C7FCE2C65F454003500B6 /* IPAddress.swift */,
 				298C7FD02C65F480003500B6 /* AirPollution.swift */,
 				298C7FD22C65F486003500B6 /* FruitNutrition.swift */,
+				298C7FD62C6604BC003500B6 /* CountryInfo.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -309,9 +309,9 @@
 				F5BFEB882C6306A3007A412B /* SidebarView.swift in Sources */,
 				298C7FD12C65F480003500B6 /* AirPollution.swift in Sources */,
 				2933B5CD2C620367004B547C /* apiMacApp.swift in Sources */,
+				298C7FD72C6604BC003500B6 /* CountryInfo.swift in Sources */,
 				298C7FD32C65F486003500B6 /* FruitNutrition.swift in Sources */,
 				299BB88B2C630C6E00F37732 /* Product.swift in Sources */,
-				298C7FD52C65FA57003500B6 /* FetchData.swift in Sources */,
 				298C7FCF2C65F454003500B6 /* IPAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
