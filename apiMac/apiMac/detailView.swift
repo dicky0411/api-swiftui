@@ -99,13 +99,13 @@ struct DetailView: View {
                 }
                 return
             }
-            if product.name == "MyLocation" {
+            if product.name == "FruitNutrition" {
                 DispatchQueue.main.async {
-                    jsonResponse = parseIP(data)
-                }
-            }else if product.name == "FruitNutrition"{
-                DispatchQueue.main.async{
                     jsonResponse = parseFruits(data)
+                }
+            }else if product.name == "MyLocation"{
+                DispatchQueue.main.async{
+                    jsonResponse = parseIP(data)
                 }
                 
             }
@@ -118,9 +118,16 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(product: Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/"))
+        Group {
+            DetailView(product: Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location", textbox: "Enter the IP:", baseurl: "https://ipwho.is/"))
+            
+            DetailView(product: Product(name: "FruitNutrition", description: "Get nutritional information about fruits", icon: "applelogo", textbox: "Enter the Fruit ID:", baseurl: "https://fruitapi.com/"))
+            
+            // Add more previews with different products and base URLs if needed
+        }
     }
 }
+
 
 func parseIP(_ data: Data) -> String {
     do {
