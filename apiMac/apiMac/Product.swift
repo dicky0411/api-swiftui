@@ -13,6 +13,7 @@ struct Product: Identifiable, Equatable, Hashable {
     let icon: String
     let textbox: String
     let baseurl: String
+    let endurl: String
     
-    static let sampleProduct = Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location", textbox: "Enter the IP:",baseurl:"https://ipwho.is/")
+    static let sampleProduct = Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location", textbox: "Enter the IP:",baseurl:"https://ipwho.is/",endurl:"")
 }

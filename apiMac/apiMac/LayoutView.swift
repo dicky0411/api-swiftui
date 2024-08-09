@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LayoutView: View {
-    @State private var selectedProduct = Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "IP?",baseurl:"https://ipwho.is/")
+    @State private var selectedProduct = Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/",endurl:"")
 
     var body: some View {
         NavigationSplitView {

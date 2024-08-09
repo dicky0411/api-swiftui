@@ -4,9 +4,9 @@ struct SidebarView: View {
     @Binding var selection: Product
     
     static var products: [Product] = [
-        Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/"),
-        Product(name: "FruitNutrition", description: "Get nutirition information from fruits", icon: "applelogo",textbox: "Enter the Fruit:",baseurl:"https://www.fruityvice.com/api/fruit/"),
-        Product(name: "CountryInfo", description: "Detailed information about countries", icon: "flag",textbox: "Enter the Country:",baseurl:"https://api.waqi.info/feed/")
+        Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/",endurl:""),
+        Product(name: "FruitNutrition", description: "Get nutirition information from fruits", icon: "applelogo",textbox: "Enter the Fruit:",baseurl:"https://www.fruityvice.com/api/fruit/",endurl:""),
+        Product(name: "AirPollution", description: "Detailed information about AirPollution", icon: "cloud.sun",textbox: "Enter the City:",baseurl:"https://api.waqi.info/feed/",endurl:"/?token=6ed027a8994d9f8d76d5ec37bd4293e257f69926")
     ]
     
     var body: some View {
@@ -32,5 +32,5 @@ struct SidebarView: View {
 }
 
 #Preview {
-    SidebarView(selection: .constant(Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "IP?",baseurl:"https://ipwho.is/")))
+    SidebarView(selection: .constant(Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location",textbox: "Enter the IP:",baseurl:"https://ipwho.is/",endurl:"")))
 }
