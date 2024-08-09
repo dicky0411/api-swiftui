@@ -26,7 +26,7 @@ struct DetailView: View {
                 .frame(width: 120, height: 120)
                 .foregroundColor(.accentColor)
             
-            TextField(product.textbox, text: $ipAddress, onCommit: { fetchData(for: ipAddress)})
+            TextField(product.textbox, text: $ipAddress)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
                 .background(Color(nsColor: .windowBackgroundColor))
@@ -118,13 +118,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             DetailView(product: Product(name: "MyLocation", description: "Track your location with high accuracy", icon: "location", textbox: "Enter the IP:", baseurl: "https://ipwho.is/"))
-            
-            DetailView(product: Product(name: "FruitNutrition", description: "Get nutritional information about fruits", icon: "applelogo", textbox: "Enter the Fruit ID:", baseurl: "https://fruitapi.com/"))
-            
-            // Add more previews with different products and base URLs if needed
-        }
     }
 }
 
@@ -165,14 +159,14 @@ func parseFruits(_ data: Data) -> String {
             let fat = nutritions["fat"] as? Double
             let sugar = nutritions["sugar"] as? Double
             let carbs = nutritions["carbohydrates"] as? Double
-            let proteins = nutritions["proteins"] as? Double
+            let proteins = nutritions["protein"] as? Int
             
             let result = """
-            Calories: \(calories == nil ? "nil" : "\(calories!)")
-            Fat: \(fat == nil ? "nil" : "\(fat!)")
-            Sugar: \(sugar == nil ? "nil" : "\(sugar!)")
-            Carbs: \(carbs == nil ? "nil" : "\(carbs!)")
-            Proteins: \(proteins == nil ? "nil" : "\(proteins!)")
+            Calories: \(calories == nil ? "nil" : "\(calories!)")g
+            Fat: \(fat == nil ? "nil" : "\(fat!)")g
+            Sugar: \(sugar == nil ? "nil" : "\(sugar!)")g
+            Carbs: \(carbs == nil ? "nil" : "\(carbs!)")g
+            Protein: \(proteins == nil ? "nil" : "\(proteins!)")
             """
             return result
         } else {
