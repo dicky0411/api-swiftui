@@ -120,7 +120,7 @@ struct DetailView: View {
                 } else if product.name == "AirPollution" {
                     jsonResponse = parseAir(data)
                 } else if product.name == "CountryInfo" {
-                    jsonResponse = parseAir(data)
+                    jsonResponse = parseCountry(data)
                 }
             }
         }
